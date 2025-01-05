@@ -21,7 +21,7 @@ class DataFetcher() {
     private var iTunesIsRunning = false
     private var iTunes: ActiveXComponent? = null
     private var iTunesTimeout = 0
-    private val players = "(Spotify|MusicBee|AIMP|YouTube Music Desktop App|TIDAL|Qobuz).exe".toRegex()
+    private val players = "(Spotify|MusicBee|AIMP|YouTube Music Desktop App|TIDAL|Qobuz|cloudmusic).exe".toRegex()
 
     fun getCurrentSong(): String? {
         return arrayOf(
@@ -64,6 +64,16 @@ class DataFetcher() {
             }
             if (processPath.endsWith("YouTube Music.exe")) {
                 thchYoutubeMusicIsRunning = true
+            }
+            // NetEase Cloud Music
+            if (processPath.endsWith("cloudmusic.exe")) {
+                val titleLength = User32.INSTANCE.GetWindowTextLength(hwnd) + 1
+                val title = CharArray(titleLength)
+                User32.INSTANCE.GetWindowText(hwnd, title, titleLength)
+                val wText = Native.toString(title)
+                if (wText.contains(" - ")) {
+                    song = wText
+                }
             }
             Kernel32.INSTANCE.CloseHandle(process)
             true

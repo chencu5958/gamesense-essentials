@@ -10,7 +10,10 @@ group = "eu.tricht.gamesense"
 version = "1.15.0"
 
 repositories {
-    mavenCentral()
+    //mavenCentral()
+    maven {
+        url = uri("https://maven.aliyun.com/repository/public/")
+    }
 }
 
 dependencies {
@@ -25,13 +28,13 @@ dependencies {
 
 tasks {
     compileKotlin {
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_21.majorVersion
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_17.majorVersion
     }
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 val fatJar = task("fatJar", type = Jar::class) {

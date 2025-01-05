@@ -17,6 +17,7 @@ This programs adds the following to your SteelSeries OLED screen:
   - [th-ch's Youtube Music Desktop App](https://th-ch.github.io/youtube-music/)  
     Make sure the API server plugin is enabled, running on port 26538 and without authentication.
   - [YouTube Music Desktop App](https://ytmdesktop.app/)
+  - [Netease Cloud Music](https://music.163.com/) Need [BetterNcm](https://github.com/std-microblock/BetterNCM) and Inflink plugins
 
 [Download for Windows](https://github.com/mtricht/gamesense-essentials/releases/download/1.15.0/gamesense-essentials-1.15.0.msi)  
 
